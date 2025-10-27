@@ -1,0 +1,5 @@
+[user]
+    name = Oleg Demakov
+    email = oleg.demakov@epfl.ch
+[core]
+    editor = vim
