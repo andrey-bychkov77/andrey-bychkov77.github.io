@@ -94,6 +94,53 @@ getsimple-html/
 
 **PostCSS**: Hugo v0.128+ uses `css.PostCSS` not deprecated `resources.PostCSS`
 
+## Gallery Management
+
+### Adding Images to Existing Gallery
+
+To add new image(s) to an existing gallery (e.g., `/photos/alp/`):
+
+1. **Optimize image** (resize to max 1920px, quality 85%):
+   ```bash
+   /opt/homebrew/bin/magick input.jpg -resize "1920x1920>" -quality 85 -interlace Plane output.jpg
+   ```
+
+2. **Create thumbnail** (max 200px):
+   ```bash
+   /opt/homebrew/bin/magick output.jpg -resize "200x200>" -quality 85 output_thumb.jpg
+   ```
+
+3. **Place files**:
+   ```bash
+   cp output.jpg static/images/gallery/alp/newimage.jpg
+   cp output_thumb.jpg static/images/gallery/alp/small/newimage.jpg
+   ```
+
+4. **Update content file** (`content/photos/alp.md`):
+   ```yaml
+   images:
+     # existing images...
+     - full: "/images/gallery/alp/newimage.jpg"
+       thumb: "/images/gallery/alp/small/newimage.jpg"
+   ```
+
+5. **Build and commit**:
+   ```bash
+   hugo --minify
+   git add .
+   git commit -m "Add new image to alp gallery"
+   git push
+   ```
+
+### Creating New Gallery
+
+Follow same pattern as existing galleries (alp, family, student, nahar, lastdr, etc, school):
+
+1. Create `content/photos/<gallery-name>.md` with `type: "gallery"`
+2. Place optimized images in `static/images/gallery/<gallery-name>/`
+3. Place thumbnails in `static/images/gallery/<gallery-name>/small/`
+4. Uses shared template `layouts/gallery/single.html` (no new layout needed)
+
 ## Common Issues
 
 - **Page Not Found**: Missing layout template (create `layouts/<page>/single.html`)
