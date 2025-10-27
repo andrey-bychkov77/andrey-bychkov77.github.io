@@ -1,0 +1,21 @@
+---
+title: "На Нахаре"
+type: "gallery"
+images:
+  - full: "/images/gallery/nahar/ab.jpg"
+    thumb: "/images/gallery/nahar/small/ab.jpg"
+  - full: "/images/gallery/nahar/andr.jpg"
+    thumb: "/images/gallery/nahar/small/andr.jpg"
+  - full: "/images/gallery/nahar/pes4era.jpg"
+    thumb: "/images/gallery/nahar/small/pes4era.jpg"
+  - full: "/images/gallery/nahar/photo.jpg"
+    thumb: "/images/gallery/nahar/small/photo.jpg"
+  - full: "/images/gallery/nahar/rdb.jpg"
+    thumb: "/images/gallery/nahar/small/rdb.jpg"
+  - full: "/images/gallery/nahar/vert.jpg"
+    thumb: "/images/gallery/nahar/small/vert.jpg"
+  - full: "/images/gallery/nahar/goryvert.jpg"
+    thumb: "/images/gallery/nahar/small/goryvert.jpg"
+  - full: "/images/gallery/nahar/shrb.jpg"
+    thumb: "/images/gallery/nahar/small/shrb.jpg"
+---
