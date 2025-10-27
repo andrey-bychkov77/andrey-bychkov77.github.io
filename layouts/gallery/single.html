@@ -1,0 +1,92 @@
+{{ define "main" }}
+<article class="max-w-6xl mx-auto px-4 py-8">
+  <header class="mb-8 text-center">
+    <h1 class="text-3xl font-bold">{{ .Title }}</h1>
+  </header>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery-grid">
+    {{ range $index, $image := .Params.images }}
+    <div class="relative group">
+      <a href="{{ .full }}" class="block gallery-item" data-index="{{ $index }}">
+        <img src="{{ .thumb }}"
+             alt="{{ $.Title }}"
+             class="w-full h-48 object-cover rounded shadow-md hover:shadow-xl transition-shadow" />
+      </a>
+    </div>
+    {{ end }}
+  </div>
+
+  {{ with .Content }}
+  <div class="mt-8 prose prose-lg mx-auto">
+    {{ . }}
+  </div>
+  {{ end }}
+</article>
+
+<script>
+const images = [
+  {{ range .Params.images }}
+  "{{ .full }}",
+  {{ end }}
+];
+
+let currentIndex = 0;
+let lightbox, lightboxImg;
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Create lightbox
+  lightbox = document.createElement('div');
+  lightbox.id = 'lightbox';
+  lightbox.className = 'hidden fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center';
+  lightbox.style.zIndex = '9999';
+
+  lightbox.innerHTML = `
+    <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300 cursor-pointer" style="z-index: 10000;">&times;</button>
+    <button id="lightbox-prev" class="absolute left-4 text-white text-6xl font-bold hover:text-gray-300 cursor-pointer" style="z-index: 10000;">&lsaquo;</button>
+    <button id="lightbox-next" class="absolute right-4 text-white text-6xl font-bold hover:text-gray-300 cursor-pointer" style="z-index: 10000;">&rsaquo;</button>
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain p-8" />
+  `;
+
+  document.body.appendChild(lightbox);
+  lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentIndex = parseInt(item.dataset.index);
+      showLightbox();
+    });
+  });
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => navigate(-1));
+  document.getElementById('lightbox-next').addEventListener('click', () => navigate(1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('hidden')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    }
+  });
+});
+
+function showLightbox() {
+  lightboxImg.src = images[currentIndex];
+  lightbox.classList.remove('hidden');
+}
+
+function closeLightbox() {
+  lightbox.classList.add('hidden');
+}
+
+function navigate(direction) {
+  currentIndex = (currentIndex + direction + images.length) % images.length;
+  lightboxImg.src = images[currentIndex];
+}
+</script>
+{{ end }}
