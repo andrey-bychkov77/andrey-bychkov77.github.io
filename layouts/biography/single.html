@@ -1,0 +1,28 @@
+{{ define "main" }}
+<article class="prose prose-lg max-w-4xl mx-auto px-4 py-8">
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+    <h2 class="text-xl text-gray-700 mb-2">{{ . }}</h2>
+    {{ end }}
+    {{ with .Params.dates }}
+    <p class="text-lg text-gray-600 italic">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ range .Params.sections }}
+  <section class="mb-8">
+    <h3 class="text-2xl font-semibold mb-4">{{ .heading }}</h3>
+    {{ range .paragraphs }}
+    <p class="mb-4 leading-relaxed">{{ . | markdownify }}</p>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with .Content }}
+  <div class="mt-8">
+    {{ . }}
+  </div>
+  {{ end }}
+</article>
+{{ end }}
