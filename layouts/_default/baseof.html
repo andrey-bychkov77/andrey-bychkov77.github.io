@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="min-h-screen bg-cover bg-no-repeat bg-top" style="background-image: url('{{ "images/bg.jpg" | relURL }}');">
+  <div class="min-h-screen flex flex-col">
+    {{ partial "header.html" . }}
+
+    <main class="flex-1">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+  </div>
+</body>
+</html>

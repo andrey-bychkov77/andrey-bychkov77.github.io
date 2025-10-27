@@ -1,0 +1,21 @@
+<header class="w-full max-w-4xl mx-auto px-4 py-5">
+  <nav class="flex flex-wrap justify-center gap-2 md:gap-4">
+    {{ $currentPage := . }}
+    {{ $menuItems := slice
+      (dict "url" "/" "title" "Главная")
+      (dict "url" "/biography" "title" "Биография")
+      (dict "url" "/photos" "title" "Фотоальбомы")
+      (dict "url" "/videos" "title" "Видео")
+      (dict "url" "/texts" "title" "Тексты")
+    }}
+
+    {{ range $menuItems }}
+      {{ $active := eq $currentPage.RelPermalink .url }}
+      <div class="px-4 md:px-8 py-6 md:py-8 text-lg md:text-2xl {{ if $active }}bg-menu-active{{ else }}bg-menu-inactive{{ end }} rounded">
+        <a href="{{ .url | relURL }}" class="{{ if $active }}text-white{{ else }}text-gray-800{{ end }} no-underline hover:opacity-80 transition-opacity">
+          {{ .title }}
+        </a>
+      </div>
+    {{ end }}
+  </nav>
+</header>

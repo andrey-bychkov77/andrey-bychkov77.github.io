@@ -1,3 +1,13 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://odemakov.github.io/andrey-bychkov/'
+languageCode = 'ru'
+title = 'Андрей Бычков'
+defaultContentLanguage = 'ru'
+publishDir = 'docs'
+
+[params]
+  description = 'Андрей Бычков - российский альпинист, кандидат в мастера спорта'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

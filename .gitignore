@@ -1,1 +1,27 @@
+# Original GetSimple site (reference only, not deployed)
 getsimple-html
+
+# Hugo
+.hugo_build.lock
+/public/
+/resources/_gen/
+
+# Note: /docs/ is NOT ignored - it's the GitHub Pages publish directory
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
