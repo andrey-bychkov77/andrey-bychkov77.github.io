@@ -2,14 +2,41 @@
 <div class="max-w-4xl mx-auto px-4 py-8">
   <h1 class="text-3xl font-bold text-center mb-8">{{ .Title }}</h1>
 
-  {{ with .Params.intro }}
-  <h4 class="text-center mb-8">{{ . | markdownify }}</h4>
+  {{ $intro := .Params.intro }}
+  {{ if $intro }}
+    {{ $introType := printf "%T" $intro }}
+    {{ if eq $introType "string" }}
+      {{/* simple text intro */}}
+      <h4 class="text-center mb-8">{{ $intro | markdownify }}</h4>
+    {{ else }}
+      {{/* intro with image and text (it's a map) */}}
+      <div class="grid md:grid-cols-[60%_40%] gap-4 mb-8">
+        <div class="flex items-center">
+          <div class="text-sm leading-relaxed">
+            {{ $introText := index $intro "text" }}
+            {{ range split $introText "\n" }}
+              {{ if . }}
+                <p class="mb-2">{{ . | markdownify }}</p>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+        {{ $introImage := index $intro "image" }}
+        {{ with $introImage }}
+        <div class="flex justify-center items-center">
+          <img src="{{ . }}" alt="Andrey Bychkov" class="max-w-[181px] h-auto" />
+        </div>
+        {{ end }}
+      </div>
+    {{ end }}
   {{ end }}
 
   <div class="h-px bg-gray-300 mb-8"></div>
 
+  {{/* blocks with headings (2 columns) - main texts index */}}
+  {{ with .Params.blocks }}
   <div class="grid md:grid-cols-2 gap-8">
-    {{ range .Params.blocks }}
+    {{ range . }}
     <div class="text-center">
       <h3 class="text-2xl font-bold mb-6">{{ .heading }}</h3>
       <ul class="space-y-3 text-left list-none">
@@ -32,6 +59,33 @@
     </div>
     {{ end }}
   </div>
+  {{ end }}
+
+  {{/* columns without headings (3 columns, dual links) - forum index */}}
+  {{ with .Params.columns }}
+  <div class="grid md:grid-cols-3 gap-8">
+    {{ range . }}
+    <div>
+      <ul class="space-y-2 list-none text-sm">
+        {{ range .links }}
+        <li class="flex items-start gap-2">
+          <a href="{{ .external }}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 mt-1">
+            <svg style="width: 16px; height: 16px; display: inline-block;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
+          {{ if .internal }}
+          <a href="{{ .internal }}" class="underline hover:text-[#5091B1]">{{ .text }}</a>
+          {{ else }}
+          <a href="{{ .external }}" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#5091B1]">{{ .text }}</a>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
 
   <div class="h-px bg-gray-300 mt-8"></div>
 </div>

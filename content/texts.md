@@ -4,10 +4,10 @@ intro: "Друзья, если вы хотите что-то написать, �
 blocks:
   - heading: "ТЕКСТЫ АНДРЕЯ"
     links:
-      - url: "/bukovo_net/alpmount/"
+      - url: "/texts/bukovo-net/alpmount/"
         text: "Тема \"Альпинизм и горы\", которую вел Андрей (bicheps)"
         external: false
-      - url: "/andrey-bychkov/texts/bukovo_net"
+      - url: "/texts/bukovo-net/"
         text: "Все, что написал Андрей на сайте bukovo.net"
         external: false
       - url: "http://www.mountain.ru/useful/comp/7_kabalkalp/c7.shtml"
@@ -16,30 +16,30 @@ blocks:
       - url: "http://www.mountain.ru/profile/user.php?userid=andy"
         text: "Учетная карточка члена горного клуба"
         external: true
-      - url: "/andrey-bychkov/texts/andy_on_mountainru/"
+      - url: "/texts/andy_on_mountainru/"
         text: "Андрей (andy) на форуме mountain.ru"
         external: false
   - heading: "ПОСЛЕ НАХАРА"
     links:
-      - url: "/andrey-bychkov/texts/tluchshe_gor/"
+      - url: "/texts/tluchshe_gor/"
         text: "Лучше гор могут быть только люди. Живые"
         external: false
-      - url: "/andrey-bychkov/texts/ice_heart/"
+      - url: "/texts/ice_heart/"
         text: "Ледяное сердце лавины"
         external: false
-      - url: "/andrey-bychkov/texts/tlavina/"
+      - url: "/texts/tlavina/"
         text: "Фильм \"Лавина\" и его обсуждение"
         external: false
-      - url: "/andrey-bychkov/texts/tnahar_exp/"
+      - url: "/texts/tnahar_exp/"
         text: "Нахарская экспедиция"
         external: false
-      - url: "/andrey-bychkov/texts/mountain_ru_2006/"
+      - url: "/texts/mountain_ru_2006/"
         text: "С горного форума mountain.ru в феврале 2006 года и позже"
         external: false
-      - url: "/andrey-bychkov/texts/remember/"
+      - url: "/texts/remember/"
         text: "Воспоминания"
         external: false
-      - url: "/andrey-bychkov/texts/mem_bukovonet/"
+      - url: "/texts/mem_bukovonet/"
         text: "В память об Андрее на bukovo.net"
         external: false
 ---
