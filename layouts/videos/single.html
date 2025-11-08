@@ -1,0 +1,54 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto px-4 py-8">
+  <header class="mb-8 text-center">
+    <h1 class="text-3xl font-bold mb-8">{{ .Title }}</h1>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {{ range .Params.videos }}
+    <div class="text-center">
+      {{ if eq .type "youtube" }}
+        <div class="relative w-full" style="padding-bottom: 56.25%;">
+          <iframe
+            class="absolute top-0 left-0 w-full h-full rounded-lg shadow-md"
+            src="https://www.youtube.com/embed/{{ .embedId }}"
+            title="{{ .title }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      {{ else if eq .type "yandex" }}
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="block">
+          <img src="{{ .thumb }}" alt="{{ .title }}" class="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow" />
+        </a>
+      {{ else if eq .type "local" }}
+        <a href="{{ .url }}" class="block">
+          <img src="{{ .thumb }}" alt="{{ .title }}" class="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow" />
+        </a>
+      {{ end }}
+
+      <h3 class="mt-4 text-lg font-medium">
+        {{ if .detailPage }}
+          <a href="{{ .detailPage }}" class="hover:text-[#5091B1]">{{ .title }}</a>
+        {{ else if eq .type "yandex" }}
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="hover:text-[#5091B1]">{{ .title }}</a>
+        {{ else }}
+          {{ .title }}
+        {{ end }}
+      </h3>
+
+      {{ with .description }}
+        <p class="mt-2 text-sm text-gray-600">{{ . }}</p>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+
+  {{ with .Content }}
+  <div class="mt-8 prose prose-lg mx-auto">
+    {{ . }}
+  </div>
+  {{ end }}
+</article>
+{{ end }}

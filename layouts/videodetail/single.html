@@ -1,0 +1,30 @@
+{{ define "main" }}
+<article class="prose prose-lg max-w-4xl mx-auto px-4 py-8">
+  <header class="mb-8 text-center">
+    <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
+
+    {{ with .Params.video_thumb }}
+    <div class="mb-6">
+      <a href="{{ $.Params.video_url }}" target="_blank" rel="noopener noreferrer">
+        <img src="{{ . }}" alt="{{ $.Title }}" class="mx-auto rounded-lg shadow-md hover:shadow-xl transition-shadow" style="max-height: 400px; width: auto;" />
+      </a>
+    </div>
+    {{ end }}
+  </header>
+
+  {{ range .Params.sections }}
+  <section class="mb-8">
+    <h3 class="text-2xl font-semibold mb-4">{{ .heading }}</h3>
+    {{ range .paragraphs }}
+    <p class="mb-4 leading-relaxed">{{ . | markdownify }}</p>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with .Content }}
+  <div class="mt-8">
+    {{ . }}
+  </div>
+  {{ end }}
+</article>
+{{ end }}
