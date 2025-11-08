@@ -11,3 +11,8 @@ publishDir = 'docs'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[minify]
+  disableHTML = false
+  [minify.tdewolff.html]
+    keepWhitespace = true
