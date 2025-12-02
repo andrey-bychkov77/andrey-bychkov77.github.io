@@ -7,6 +7,11 @@ getsimple-html
 /resources/_gen/
 
 # Note: /docs/ is NOT ignored - it's the GitHub Pages publish directory
+# But ignore large video files
+docs/videos/*.mp4
+docs/videos/*.avi
+docs/videos/*.mov
+docs/videos/*.webm
 
 # Dependencies
 node_modules/

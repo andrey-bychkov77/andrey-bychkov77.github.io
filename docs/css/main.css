@@ -1250,6 +1250,9 @@ body{
 .max-w-full{
   max-width: 100%;
 }
+.max-w-none{
+  max-width: none;
+}
 .flex-1{
   flex: 1 1 0%;
 }
@@ -1307,6 +1310,11 @@ body{
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+.space-y-4 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 .rounded{
   border-radius: 0.25rem;
