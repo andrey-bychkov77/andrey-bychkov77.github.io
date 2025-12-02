@@ -1,0 +1,26 @@
+---
+title: "Андрей (andy) на форуме mountain.ru"
+type: "texts"
+intro: "Архив сообщений Андрея на горном форуме mountain.ru с 2001 по 2005 год."
+blocks:
+  - heading: ""
+    links:
+      - text: "2001"
+        url: "/texts/andy_on_mountainru/2001/"
+      - text: "2002 (1е полугодие)"
+        url: "/texts/andy_on_mountainru/2002_1/"
+      - text: "2002 (2е полугодие) - часть 1"
+        url: "/texts/andy_on_mountainru/2002_2a/"
+      - text: "2002 (2е полугодие) - часть 2"
+        url: "/texts/andy_on_mountainru/2002_2b/"
+      - text: "2003 (1е полугодие)"
+        url: "/texts/andy_on_mountainru/2003_1/"
+      - text: "2003 (2е полугодие)"
+        url: "/texts/andy_on_mountainru/2003_2/"
+      - text: "2004"
+        url: "/texts/andy_on_mountainru/2004/"
+      - text: "2005 (1е полугодие)"
+        url: "/texts/andy_on_mountainru/2005_1/"
+      - text: "2005 (2е полугодие)"
+        url: "/texts/andy_on_mountainru/2005_2/"
+---

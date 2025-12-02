@@ -4,6 +4,14 @@ title = 'Андрей Бычков'
 defaultContentLanguage = 'ru'
 publishDir = 'docs'
 
+[caches]
+  [caches.getjson]
+    maxAge = -1
+  [caches.getcsv]
+    maxAge = -1
+  [caches.getresource]
+    maxAge = -1
+
 [params]
   description = 'Андрей Бычков - российский альпинист, кандидат в мастера спорта'
 
