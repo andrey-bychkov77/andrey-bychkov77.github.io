@@ -12,6 +12,10 @@ docs/videos/*.mp4
 docs/videos/*.avi
 docs/videos/*.mov
 docs/videos/*.webm
+static/videos/*.mp4
+static/videos/*.avi
+static/videos/*.mov
+static/videos/*.webm
 
 # Dependencies
 node_modules/
