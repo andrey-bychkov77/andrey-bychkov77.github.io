@@ -33,6 +33,13 @@
 
   <div class="h-px bg-gray-300 mb-8"></div>
 
+  {{/* Render markdown content if present */}}
+  {{ if .Content }}
+  <div class="prose prose-lg max-w-none mb-8">
+    {{ .Content }}
+  </div>
+  {{ end }}
+
   {{/* blocks with headings (2 columns) - main texts index */}}
   {{ with .Params.blocks }}
   <div class="grid md:grid-cols-2 gap-8">
