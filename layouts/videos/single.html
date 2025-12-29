@@ -18,7 +18,7 @@
             allowfullscreen>
           </iframe>
         </div>
-      {{ else if eq .type "yandex" }}
+      {{ else if eq .type "external" }}
         <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="block">
           <img src="{{ .thumb }}" alt="{{ .title }}" class="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow" />
         </a>
@@ -31,7 +31,7 @@
       <h3 class="mt-4 text-lg font-medium">
         {{ if .detailPage }}
           <a href="{{ .detailPage }}" class="hover:text-[#5091B1]">{{ .title }}</a>
-        {{ else if eq .type "yandex" }}
+        {{ else if eq .type "external" }}
           <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="hover:text-[#5091B1]">{{ .title }}</a>
         {{ else }}
           {{ .title }}
