@@ -1,5 +1,5 @@
-# Original GetSimple site (reference only, not deployed)
-getsimple-html
+# Original GetSimple site (keep out of git - use getsimple-cms-original.tar.gz archive instead)
+getsimple-html/
 
 # Hugo
 .hugo_build.lock
