@@ -169,7 +169,7 @@
   `,document.body.appendChild(lightbox),lightboxImg=document.getElementById("lightbox-img"),document.querySelectorAll(".gallery-item").forEach(e=>{e.addEventListener("click",t=>{t.preventDefault(),currentIndex=parseInt(e.dataset.index),showLightbox()})}),document.getElementById("lightbox-close").addEventListener("click",closeLightbox),document.getElementById("lightbox-prev").addEventListener("click",()=>navigate(-1)),document.getElementById("lightbox-next").addEventListener("click",()=>navigate(1)),lightbox.addEventListener("click",e=>{e.target===lightbox&&closeLightbox()}),document.addEventListener("keydown",e=>{lightbox.classList.contains("hidden")||(e.key==="Escape"&&closeLightbox(),e.key==="ArrowLeft"&&navigate(-1),e.key==="ArrowRight"&&navigate(1))})});function showLightbox(){lightboxImg.src=images[currentIndex],lightbox.classList.remove("hidden")}function closeLightbox(){lightbox.classList.add("hidden")}function navigate(e){currentIndex=(currentIndex+e+images.length)%images.length,lightboxImg.src=images[currentIndex]}</script>
 </main>
 <footer class="w-full text-center py-4 text-sm md:text-base">
-<p>2006 - 2025 © Все права защищены</p>
+<p>2006 - 2026 © Все права защищены</p>
 </footer>
 </div>
 </body>

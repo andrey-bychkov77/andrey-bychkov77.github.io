@@ -11,7 +11,7 @@ videos:
   - title: 'Слайд-фильм "Андрей и горы"'
     thumb: "/images/gallery/andrey_mountains.jpg"
     type: "external"
-    url: "https://disk.yandex.ru/d/Bxt10bUPweWUNQ"
+    url: "https://vk.com/video249900581_456239023"
     description: ""
 
   - title: '"В ГАИШе"'
