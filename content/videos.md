@@ -21,10 +21,9 @@ videos:
     description: ""
 
   - title: '"Сходим к Андрею"'
-    thumb: ""
-    type: "youtube"
-    embedId: "lfD9zrihBDI"
-    url: "https://youtu.be/lfD9zrihBDI"
+    thumb: "/images/gallery/visit_andrey.jpg"
+    type: "external"
+    url: "https://vk.com/video249900581_456239024"
     description: ""
 
   - title: '"Андрей дома"'
