@@ -29,6 +29,6 @@ videos:
   - title: '"Андрей дома"'
     thumb: "/images/gallery/andrey_doma.jpg"
     type: "external"
-    url: "https://vk.com/video249900581_456239021"
+    url: "https://vk.com/video249900581_456239025"
     description: ""
 ---
